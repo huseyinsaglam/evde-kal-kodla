@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor // bu nesnelerin tüm özelliklerini kullanarak kullanılan bir constructordır
 @ToString // özelliklerin ekrana yazılması için tostring metodunu override ediyoruz..
 @EqualsAndHashCode // equals ve hash code metotlarını override ediyoruz..
-public class User {
+public class User extends BaseEntity {
 
 
     @Id
