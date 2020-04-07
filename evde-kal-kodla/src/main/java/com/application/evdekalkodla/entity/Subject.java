@@ -36,4 +36,15 @@ public class Subject extends BaseEntity {
     @Column(name = "subject_status")
     @Enumerated(EnumType.STRING) // Enum sınıfındaki ögeleri string tipinde tutabiliyoruz..
     private SubjectStatus subjectStatus; // burada görevin takip edecebilecegimiz bir durum oldu..
+
+
+    @JoinColumn(name = "assignee_user_id")
+    @ManyToOne(optional = true , fetch = FetchType.LAZY) // birden fazla subject konu bir user'a atanabilir..
+    private User assignee;                               // optinal kullanmamızın sebebi bu issue bir kullanıcıya atamasanda olur.. null kalsada olur anlamında
+
+
+
+    @JoinColumn(name = "project_id")
+    @ManyToOne(optional = true , fetch = FetchType.LAZY) // birden fazla subject konu bir projeye'e atanabilir..
+    private Project project;
 }
