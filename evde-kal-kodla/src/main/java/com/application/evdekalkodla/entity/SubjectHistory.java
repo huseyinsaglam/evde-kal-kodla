@@ -14,7 +14,7 @@ import java.util.Date;
 @ToString // özelliklerin ekrana yazılması için tostring metodunu override ediyoruz..
 @EqualsAndHashCode // equals ve hash code metotlarını override ediyoruz..
 public class SubjectHistory extends BaseEntity { // burada history'in bir geçmişi olsun..
-    // burada history in geçmisini tutuyoruz önce açıldı sonra kapatıldı , resolved oldu gibi issue geçmişini tutuyoruz..
+    // burada history in geçmisini tutuyoruz önce açıldı sonra kapatıldı , resolved oldu gibi subject geçmişini tutuyoruz..
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

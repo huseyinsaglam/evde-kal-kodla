@@ -11,4 +11,6 @@ public interface UserService {
     public User getById(Long id);
 
     public Page<User> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun User leri..
+
+    User getByUsername(String username);
 }

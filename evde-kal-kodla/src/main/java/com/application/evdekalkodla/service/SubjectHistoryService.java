@@ -11,4 +11,6 @@ public interface SubjectHistoryService {
     public SubjectHistory getById(Long id);
 
     public Page<SubjectHistory> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun subjectHistory leri..
+
+    Boolean delete(SubjectHistory subjectHistory);
 }

@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface SubjectHistoryRepository extends JpaRepository<SubjectHistory,Long> {
 
-    List<SubjectHistory> getByIssueIdOrderById(Long id);
 
     // extends JpaRepository<SubjectHistory,Long> burada spring boot data jpa extends ederek arka tarafta
     // ekleme,güncelleme , silme , vb.. olayları extends olmuş oluyoruz..
