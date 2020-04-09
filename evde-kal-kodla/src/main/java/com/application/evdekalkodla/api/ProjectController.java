@@ -1,0 +1,38 @@
+package com.application.evdekalkodla.api;
+
+
+import com.application.evdekalkodla.dto.ProjectDto;
+import com.application.evdekalkodla.service.implementation.ProjectServiceImpl;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+
+@RestController
+@RequestMapping("/project")
+public class ProjectController {
+
+    private final ProjectServiceImpl projectServiceImpl;
+
+
+    public ProjectController(ProjectServiceImpl projectServiceImpl) {
+        this.projectServiceImpl = projectServiceImpl;
+    }
+
+    // Url deki gelen id'i PathVariable ile aldık ...
+    @GetMapping("/{id}") // REST Web Servis metodu haline getirmek için
+    public ResponseEntity<ProjectDto> getByid(@PathVariable("id") Long id)
+    {
+        ProjectDto projectDto = projectServiceImpl.getById(id);
+        return ResponseEntity.ok(projectDto);
+    }
+
+
+    @PostMapping
+    public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto project)
+    {
+
+        return ResponseEntity.ok(projectServiceImpl.save(project));
+
+    }
+}
