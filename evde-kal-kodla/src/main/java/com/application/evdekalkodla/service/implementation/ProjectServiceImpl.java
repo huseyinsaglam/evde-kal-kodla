@@ -64,4 +64,38 @@ public class ProjectServiceImpl implements ProjectService {
 
         return null;
     }
+
+    public Boolean delete(Long id) {
+        projectRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public ProjectDto update(Long id, ProjectDto project) {
+
+
+
+        Project projectdb = projectRepository.getOne(id);
+
+        if (projectdb == null) {
+            throw new IllegalArgumentException("Project Does Not Exist ID:" + id);
+        }
+
+        // Ayni proje kodu ile birden fazla proje kaydi olusturmamak icin kontrol yaptik..
+        // Proje Kodu su olan (project.getProjectCode() ) ve Id' si suan mevcut duzenlemeye calistigimiz
+        // id olmayan ve bize parametre gelen ( projectCheck ) varsa hata ver
+        Project projectCheck = projectRepository.getByProjectCodeAndIdNot(project.getProjectCode(), id);
+
+        if (projectCheck != null) {
+            throw new IllegalArgumentException("Project Code Already Exist");
+        }
+
+        projectdb.setProjectCode(project.getProjectCode());
+        projectdb.setProjectName(project.getProjectName());
+
+        projectRepository.save(projectdb);
+
+        return modelMapper.map(projectdb,ProjectDto.class);
+
+    }
 }

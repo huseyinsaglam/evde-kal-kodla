@@ -35,4 +35,18 @@ public class ProjectController {
         return ResponseEntity.ok(projectServiceImpl.save(project));
 
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProjectDto> updateProject (@PathVariable("id") Long id, @Valid @RequestBody ProjectDto project)
+    {
+        return ResponseEntity.ok(projectServiceImpl.update(id,project));
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable("id") Long id)
+    {
+        return ResponseEntity.ok(projectServiceImpl.delete(id));
+
+    }
 }

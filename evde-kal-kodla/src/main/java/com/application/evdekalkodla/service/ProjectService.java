@@ -17,4 +17,6 @@ public interface ProjectService {
 
     Boolean delete(Project project);
 
+    public ProjectDto update(Long id,ProjectDto project);
+
 }

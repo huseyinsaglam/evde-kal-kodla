@@ -22,4 +22,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     Page<Project> findAll(Pageable pageable);
 
     List<Project> findAll(Sort sort);
+
+    Project getByProjectCodeAndIdNot(String projectCode, Long id);
+
 }

@@ -61,7 +61,13 @@ public class SubjectServiceImpl implements SubjectService {
 
     }
     @Override
-    public Boolean delete(SubjectDto subject) {
+    public Boolean delete(Long subjectId) {
+        subjectRepository.deleteById(subjectId);
+        return true;
+    }
+
+    @Override
+    public SubjectDto update(Long id, SubjectDto subject) {
         return null;
     }
 }

@@ -13,6 +13,9 @@ public interface SubjectService {
 
     public TPage<SubjectDto> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun subject leri..
 
-    Boolean delete(SubjectDto subject);
+    // Boolean delete(SubjectDto subject);
 
+    Boolean delete(Long subject);
+
+    SubjectDto update(Long id, SubjectDto subject);
 }
