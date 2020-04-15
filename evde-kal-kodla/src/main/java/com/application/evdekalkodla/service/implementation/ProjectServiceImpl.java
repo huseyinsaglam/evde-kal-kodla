@@ -2,12 +2,15 @@ package com.application.evdekalkodla.service.implementation;
 
 import com.application.evdekalkodla.dto.ProjectDto;
 import com.application.evdekalkodla.entity.Project;
+import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.ProjectRepository;
 import com.application.evdekalkodla.service.ProjectService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -55,8 +58,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<Project> getAllPageable(Pageable pageable) {
-        return projectRepository.findAll(pageable);
+    public TPage<ProjectDto> getAllPageable(Pageable pageable) {
+        Page<Project> data = projectRepository.findAll(pageable);
+        TPage<ProjectDto> response = new TPage<ProjectDto>();
+        response.setPage(data, Arrays.asList(modelMapper.map(data.getContent(), ProjectDto[].class)));
+        return response;
     }
 
     @Override

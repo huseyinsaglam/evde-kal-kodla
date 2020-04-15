@@ -2,7 +2,9 @@ package com.application.evdekalkodla.api;
 
 
 import com.application.evdekalkodla.dto.ProjectDto;
+import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.service.implementation.ProjectServiceImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +29,12 @@ public class ProjectController {
         return ResponseEntity.ok(projectDto);
     }
 
+    @GetMapping("/pagination")
+    public ResponseEntity<TPage<ProjectDto>> getAllPagination(Pageable pageable)
+    {
+        TPage<ProjectDto> data = projectServiceImpl.getAllPageable(pageable);
+        return ResponseEntity.ok(data);
+    }
 
     @PostMapping
     public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto project)

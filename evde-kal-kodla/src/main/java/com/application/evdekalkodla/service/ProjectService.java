@@ -2,6 +2,7 @@ package com.application.evdekalkodla.service;
 
 import com.application.evdekalkodla.dto.ProjectDto;
 import com.application.evdekalkodla.entity.Project;
+import com.application.evdekalkodla.pagination.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,7 +14,7 @@ public interface ProjectService {
 
     ProjectDto getByProjectCode(String projectCode);
 
-    public Page<Project> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun Project leri..
+    public TPage<ProjectDto> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun Project leri..
 
     Boolean delete(Project project);
 
