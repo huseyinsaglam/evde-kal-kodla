@@ -8,6 +8,7 @@ import { FooterComponent } from './_layout/footer/footer.component';
 import { HeaderComponent } from './_layout/header/header.component';
 import { SidebarComponent } from './_layout/sidebar/sidebar.component';
 import {ApiService} from "./services/api.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ApiService} from "./services/api.service";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [ApiService],
