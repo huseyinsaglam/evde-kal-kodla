@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {ApiService} from "../api.service";
 import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class ProjectService {
@@ -12,7 +13,7 @@ export class ProjectService {
 
   getAll():Observable<any>
   {
-      return this.apiService.get("/project").pipe(
+      return this.apiService.get("/project").pipe(map(
        response =>
        {
          if (response != null)
@@ -24,13 +25,13 @@ export class ProjectService {
            console.log(response);
          }
        }
-       );
+      ));
   }
 
 
   getByid(id):Observable<any>
   {
-    return this.apiService.get("/project",id).pipe(
+    return this.apiService.get("/project",id).pipe(map(
       response =>
       {
         if (response != null)
@@ -43,12 +44,12 @@ export class ProjectService {
 
         }
       }
-    );
+    ));
   }
 
   createProject(project):Observable<any>
   {
-    return this.apiService.post("/project",project).pipe(
+    return this.apiService.post("/project",project).pipe(map(
       response =>
       {
         if (response != null)
@@ -61,13 +62,13 @@ export class ProjectService {
 
         }
       }
-    )
+    ))
   }
 
 
   delete(id):Observable<any>
   {
-    return this.apiService.delete("/project",id).pipe(
+    return this.apiService.delete("/project",id).pipe(map(
       response =>
       {
         if (response != null)
@@ -80,7 +81,7 @@ export class ProjectService {
 
         }
       }
-    );
+    ));
   }
 
 

@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {ApiService} from "../api.service";
 import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class SubjectService {
@@ -30,7 +31,7 @@ export class SubjectService {
 
   getByid(id):Observable<any>
   {
-    return this.apiService.get("/subject",id).pipe(
+    return this.apiService.get("/subject",id).pipe(map(
       response =>
       {
         if (response != null)
@@ -43,12 +44,12 @@ export class SubjectService {
 
         }
       }
-    );
+    ));
   }
 
   createSubject(subject):Observable<any>
   {
-    return this.apiService.post("/subject",subject).pipe(
+    return this.apiService.post("/subject",subject).pipe(map(
       response =>
       {
         if (response != null)
@@ -61,13 +62,13 @@ export class SubjectService {
 
         }
       }
-    )
+    ))
   }
 
 
   delete(id):Observable<any>
   {
-    return this.apiService.delete("/subject",id).pipe(
+    return this.apiService.delete("/subject",id).pipe(map(
       response =>
       {
         if (response != null)
@@ -80,7 +81,7 @@ export class SubjectService {
 
         }
       }
-    );
+    ));
   }
 
 

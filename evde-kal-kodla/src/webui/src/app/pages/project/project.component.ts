@@ -12,7 +12,7 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit() {
     this.projectService.getAll().subscribe(
-      (response) =>
+      response =>
       {
         console.log(response);
       }
