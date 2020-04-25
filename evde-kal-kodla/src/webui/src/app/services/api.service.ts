@@ -9,30 +9,30 @@ import {Observable} from "rxjs";
 })
 export class ApiService {
 
-  /* Constructor ise biz http işlemleri yapacagımız için http get,post işlemleri yapacagımız için*/
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   constructor(private http:HttpClient) { }
 
 
-  /* ilk once bir path parametresi olsun.. bize bir takım parametrelerin gonderilmesi gerekiyor.. ve bu metot bize
-* herhangi bir observable any  bir tip dönderecek*/
 
 
-  /* this.http servisi üzerinden get işlemi yapacagız get işlemi yaparken öncelikle path vermemiz gerekiyor.*/
-  /* ikincisi params vermemiz lazım gelen parametreleri vermemiz lazım ve bu işlem sonucunda pipe hata gelirse*/
-  /* o hatayı dönüşüme ugartıyoruz hataları ortaklaştırmak için catch error kullandık.*/
+    // HttpParams,  path ile gelen parametreleri alma islemini yapiyor..
   get(path: string, params: HttpParams = new HttpParams()):Observable<any> {
     return this.http.get( environment.API_BASE_PATH+path, {params});
   }
 
-
-  /* gelen parametreler belli bir path gonderilecek path gönderildikten sonra error donuyorsak o errorları sadece */
-  /* içersindeki error kullanıyor olacagız*/
+  // post ve put httpOptions ile Content icerikleri HttpHeaders koyarak gonderiyoruz JSON tipinde..
+  // params ile gelen parametreleri JSON.stringify(params) Json a cevirip sonra header ile gonderme islemi yapiyoruz..
   post(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.post(environment.API_BASE_PATH + path, JSON.stringify(params));
+    return this.http.post(environment.API_BASE_PATH + path, JSON.stringify(params),this.httpOptions);
   }
 
   put(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.put(environment.API_BASE_PATH + path, JSON.stringify(params));
+    return this.http.put(environment.API_BASE_PATH + path, JSON.stringify(params),this.httpOptions);
   }
 
   delete(path: string, params: HttpParams = new HttpParams()): Observable<any> {

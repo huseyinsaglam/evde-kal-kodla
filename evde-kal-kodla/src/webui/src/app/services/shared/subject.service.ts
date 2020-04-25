@@ -13,7 +13,7 @@ export class SubjectService {
 
   getAll():Observable<any>
   {
-      return this.apiService.get("/subject").pipe(
+      return this.apiService.get("/subject").pipe(map(
        response =>
        {
          if (response != null)
@@ -23,9 +23,10 @@ export class SubjectService {
          else
          {
            console.log(response);
+           return {};
          }
        }
-       );
+       ));
   }
 
 
@@ -41,7 +42,7 @@ export class SubjectService {
         else
         {
           console.log(response);
-
+          return {};
         }
       }
     ));
@@ -59,7 +60,7 @@ export class SubjectService {
         else
         {
           console.log(response);
-
+          return {};
         }
       }
     ))
@@ -78,7 +79,7 @@ export class SubjectService {
         else
         {
           console.log(response);
-
+          return {};
         }
       }
     ));

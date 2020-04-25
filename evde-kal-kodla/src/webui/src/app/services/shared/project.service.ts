@@ -23,12 +23,13 @@ export class ProjectService {
          else
          {
            console.log(response);
+           return {};
          }
        }
       ));
   }
 
-
+  // http://localhost:8080/project/2
   getByid(id):Observable<any>
   {
     return this.apiService.get("/project",id).pipe(map(
@@ -41,11 +42,13 @@ export class ProjectService {
         else
         {
           console.log(response);
+          return {};
 
         }
       }
     ));
   }
+
 
   createProject(project):Observable<any>
   {
@@ -59,6 +62,7 @@ export class ProjectService {
         else
         {
           console.log(response);
+          return {};
 
         }
       }
@@ -66,6 +70,7 @@ export class ProjectService {
   }
 
 
+  // http://localhost:8080/project&id=3   (id=3) HttpParams ile aldi
   delete(id):Observable<any>
   {
     return this.apiService.delete("/project",id).pipe(map(
@@ -78,6 +83,7 @@ export class ProjectService {
         else
         {
           console.log(response);
+          return {};
 
         }
       }
