@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/project")
+@CrossOrigin
 public class ProjectController {
 
     private final ProjectServiceImpl projectServiceImpl;

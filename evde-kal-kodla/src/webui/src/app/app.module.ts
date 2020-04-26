@@ -8,11 +8,21 @@ import { FooterComponent } from './_layout/footer/footer.component';
 import { HeaderComponent } from './_layout/header/header.component';
 import { SidebarComponent } from './_layout/sidebar/sidebar.component';
 import {ApiService} from "./services/api.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+
+
+/* Translate servisini kullanmamız icin tanimlama kismi . Http Client uzerinden bu json dosyalari sunucudan getirir.*/
+export const createTranslateLoader = (http: HttpClient) => {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     AppLayoutComponent,
     FooterComponent,
     HeaderComponent,
@@ -21,7 +31,17 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxDatatableModule,
+
+    /* i18n initilazion kısmımı module ekleme kısmı*/
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -11,9 +11,9 @@ export class ProjectService {
 
   }
 
-  getAll():Observable<any>
+  getAll(page):Observable<any>
   {
-      return this.apiService.get("/project").pipe(map(
+      return this.apiService.get("/project/pagination",page).pipe(map(
        response =>
        {
          if (response != null)
