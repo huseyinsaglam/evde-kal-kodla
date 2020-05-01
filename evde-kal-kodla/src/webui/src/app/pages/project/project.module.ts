@@ -5,6 +5,7 @@ import {ProjectRoutingModule} from "./project-routing.module";
 import {ProjectService} from "../../services/shared/project.service";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {SharedModule} from "../../shared/shared.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -15,7 +16,8 @@ import {SharedModule} from "../../shared/shared.module";
     CommonModule,
     NgxDatatableModule,
     ProjectRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers:[ProjectService] // Project modulunde kullanabilecegimiz local servisimiz...
 })

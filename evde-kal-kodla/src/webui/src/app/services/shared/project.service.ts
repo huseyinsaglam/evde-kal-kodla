@@ -54,7 +54,7 @@ export class ProjectService {
 
 
 
-  createProject(project):Observable<any>
+ createProject(project):Observable<any>
   {
     return this.apiService.post("/project",project).pipe(map(
       response =>
@@ -72,7 +72,6 @@ export class ProjectService {
       }
     ))
   }
-
 
 
   delete(id):Observable<any>
