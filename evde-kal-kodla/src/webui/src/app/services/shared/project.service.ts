@@ -21,148 +21,12 @@ export class ProjectService {
     })
   }
 
-/*  getAll(page):Observable<any>
-  {
-      return this.apiService.get("/project/pagination",page).pipe(map(
-       response =>
-       {
-         if (response != null)
-         {
-           return response
-         }
-         else
-         {
-           console.log(response);
-           return {};
-         }
-       }
-      ));
-  }*/
-
 
   params: HttpParams = new HttpParams()
-
+   // http://localhost:8080/project/pagination?page=0&size=10
   // HttpClient API get() method => Fetch project list
-  getAll(page): Observable<any> {
-    return this.http.get(environment.API_BASE_PATH + '/project/pagination?page=',this.params + page)
-      .pipe(map(
-        response =>
-        {
-          if (response != null)
-          {
-            return response
-          }
-          else
-          {
-            console.log(response);
-            return {};
-          }
-        }
-      ));
-  }
-
-  getByid(id):Observable<any>
-  {
-    return this.apiService.get("/project",id).pipe(map(
-      response =>
-      {
-        if (response != null)
-        {
-          return response
-        }
-        else
-        {
-          console.log(response);
-          return {};
-
-        }
-      }
-    ));
-  }
-
-
-
- createProject(project):Observable<any>
-  {
-    return this.apiService.post("/project",project).pipe(map(
-      response =>
-      {
-        if (response != null)
-        {
-          return response
-        }
-        else
-        {
-          console.log(response);
-          return {};
-
-        }
-      }
-    ))
-  }
-
-
-/*  delete(id):Observable<any>
-  {
-    return this.apiService.delete("/project"+'/',id).pipe(map(
-      response =>
-      {
-        if (response != null)
-        {
-          return response
-        }
-        else
-        {
-          console.log(response);
-          return {};
-
-        }
-      }
-    ));
-  }*/
-
-
-
-
-  // HttpClient API delete() method => Delete project
-  delete(id){
-    return this.http.delete(environment.API_BASE_PATH  + '/project/' + id, this.httpOptions)
-      .pipe(map(
-        response =>
-        {
-          if (response != null)
-          {
-            return response
-          }
-          else
-          {
-            console.log(response);
-            return {};
-
-          }
-        }
-      ));
-  }
-
-
-
-
-/*
-
-
-
-  // Http Options
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
-
-  params: HttpParams = new HttpParams()
-
- // HttpClient API get() method => Fetch project list
-  getAll(page): Observable<any> {
-    return this.http.get(environment.API_BASE_PATH + '/project/pagination?page=',this.params + page)
+  getAll(): Observable<any> {
+    return this.http.get(environment.API_BASE_PATH + '/project/pagination')
       .pipe(map(
         response =>
         {
@@ -199,6 +63,8 @@ export class ProjectService {
       ));
   }
 
+
+
   // HttpClient API post() method => Create project
   createProject(project): Observable<any> {
     return this.http.post(environment.API_BASE_PATH  + '/project', JSON.stringify(project), this.httpOptions)
@@ -217,6 +83,28 @@ export class ProjectService {
           }
         }
       ))
+  }
+
+
+
+  // HttpClient API delete() method => Delete project
+  delete(id){
+    return this.http.delete(environment.API_BASE_PATH  + '/project/' + id, this.httpOptions)
+      .pipe(map(
+        response =>
+        {
+          if (response != null)
+          {
+            return response
+          }
+          else
+          {
+            console.log(response);
+            return {};
+
+          }
+        }
+      ));
   }
 
   // HttpClient API put() method => Update project
@@ -239,29 +127,7 @@ export class ProjectService {
       ));
   }
 
-  // HttpClient API delete() method => Delete project
-  delete(id){
-    return this.http.delete(environment.API_BASE_PATH  + '/project/' + id, this.httpOptions)
-      .pipe(map(
-        response =>
-        {
-          if (response != null)
-          {
-            return response
-          }
-          else
-          {
-            console.log(response);
-            return {};
 
-          }
-        }
-      ));
-  }
-
-
-
-*/
 
 
 

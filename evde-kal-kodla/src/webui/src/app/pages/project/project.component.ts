@@ -18,7 +18,6 @@ export class ProjectComponent implements OnInit {
   modalRef: BsModalRef;
   projectForm: FormGroup;
 
-  page = new Page();
   rows = [];
   columns = [];
   loadingIndicator = true;
@@ -60,11 +59,9 @@ export class ProjectComponent implements OnInit {
 
   // https://www.positronx.io/create-ionic-data-table-with-ngx-datatable/
   fetch(cb) {
-    this.projectService.getAll(this.page).subscribe(
+    this.projectService.getAll().subscribe(
       projectData => {
-        this.page.size = projectData.size;
-        this.page.page = projectData.page;
-        this.page.totalElements = projectData.totalElements;
+
         this.rows = projectData.content;
 
       }
