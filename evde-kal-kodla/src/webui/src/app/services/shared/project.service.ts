@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {ApiService} from "../api.service";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 
 @Injectable()
@@ -14,7 +14,14 @@ export class ProjectService {
   }
 
 
-  getAll(page):Observable<any>
+  // Http Options
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
+/*  getAll(page):Observable<any>
   {
       return this.apiService.get("/project/pagination",page).pipe(map(
        response =>
@@ -30,8 +37,29 @@ export class ProjectService {
          }
        }
       ));
-  }
+  }*/
 
+
+  params: HttpParams = new HttpParams()
+
+  // HttpClient API get() method => Fetch project list
+  getAll(page): Observable<any> {
+    return this.http.get(environment.API_BASE_PATH + '/project/pagination?page=',this.params + page)
+      .pipe(map(
+        response =>
+        {
+          if (response != null)
+          {
+            return response
+          }
+          else
+          {
+            console.log(response);
+            return {};
+          }
+        }
+      ));
+  }
 
   getByid(id):Observable<any>
   {
@@ -74,9 +102,9 @@ export class ProjectService {
   }
 
 
-  delete(id):Observable<any>
+/*  delete(id):Observable<any>
   {
-    return this.apiService.delete("/project",id).pipe(map(
+    return this.apiService.delete("/project"+'/',id).pipe(map(
       response =>
       {
         if (response != null)
@@ -91,6 +119,29 @@ export class ProjectService {
         }
       }
     ));
+  }*/
+
+
+
+
+  // HttpClient API delete() method => Delete project
+  delete(id){
+    return this.http.delete(environment.API_BASE_PATH  + '/project/' + id, this.httpOptions)
+      .pipe(map(
+        response =>
+        {
+          if (response != null)
+          {
+            return response
+          }
+          else
+          {
+            console.log(response);
+            return {};
+
+          }
+        }
+      ));
   }
 
 
@@ -107,9 +158,11 @@ export class ProjectService {
     })
   }
 
-  // HttpClient API get() method => Fetch project list
+  params: HttpParams = new HttpParams()
+
+ // HttpClient API get() method => Fetch project list
   getAll(page): Observable<any> {
-    return this.http.get(environment.API_BASE_PATH + '/project/pagination?page=' + page)
+    return this.http.get(environment.API_BASE_PATH + '/project/pagination?page=',this.params + page)
       .pipe(map(
         response =>
         {

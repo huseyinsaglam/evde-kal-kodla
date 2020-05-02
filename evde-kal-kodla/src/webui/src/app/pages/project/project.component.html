@@ -1,21 +1,22 @@
 <div class="content-wrapper">
 
   <h3> {{ 'Project List' | translate }} </h3>
+
   <ngx-datatable
-    class="bootstrap"
+    class="bootstrap "
+    [limit]="8"
     [rows]="rows"
-    [columns]="cols"
+    [rowHeight]="50"
+    [columns]="columns"
     [columnMode]="'force'"
+    [sortType]="'multi'"
     [headerHeight]="50"
-    [footerHeight]="50"
-    [rowHeight]="'auto'"
-    [externalPaging]="true"
-    [count]="page.totalElements"
-    [offset]="page.page"
-    [limit]="page.size"
-    (page)="setPage($event)">
+    [footerHeight]="50">
   </ngx-datatable>
 
+  <ng-template #tplProjectDeleteCell let-row="row" let-value="value">
+    <button (click)="showProjectDeleteConfirmation(value)"><i class="material-icons">delete</i></button>
+  </ng-template>
 
   <button type="button" class="btn btn-primary" (click)="openModal(template)">New Product </button>
 

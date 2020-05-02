@@ -12,6 +12,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {CommonModule} from "@angular/common";
+
 
 
 /* Translate servisini kullanmamız icin tanimlama kismi . Http Client uzerinden bu json dosyalari sunucudan getirir.*/
@@ -32,6 +34,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    CommonModule,
     NgxDatatableModule,
 
     /* i18n initilazion kısmımı module ekleme kısmı*/
