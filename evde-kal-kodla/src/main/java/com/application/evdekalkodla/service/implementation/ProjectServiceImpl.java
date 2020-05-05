@@ -2,8 +2,10 @@ package com.application.evdekalkodla.service.implementation;
 
 import com.application.evdekalkodla.dto.ProjectDto;
 import com.application.evdekalkodla.entity.Project;
+import com.application.evdekalkodla.entity.User;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.ProjectRepository;
+import com.application.evdekalkodla.repository.UserRepository;
 import com.application.evdekalkodla.service.ProjectService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -17,11 +19,15 @@ public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
     private final ModelMapper modelMapper;
+    private final UserRepository userRepository;
 
 
-    public ProjectServiceImpl(ProjectRepository projectRepository, ModelMapper modelMapper) {
+    public ProjectServiceImpl(ProjectRepository projectRepository,
+                              ModelMapper modelMapper,
+                              UserRepository userRepository) {
         this.projectRepository = projectRepository;
         this.modelMapper = modelMapper;
+        this.userRepository = userRepository;
     }
 
 
@@ -35,6 +41,8 @@ public class ProjectServiceImpl implements ProjectService {
             throw new IllegalArgumentException("Project Code Already Exist");
         }
         Project projectData = modelMapper.map(project, Project.class);
+        User user = userRepository.getOne(project.getManagerId());
+        projectData.setManagerId(user);
 
         projectData = projectRepository.save(projectData);
         project.setId(projectData.getId());

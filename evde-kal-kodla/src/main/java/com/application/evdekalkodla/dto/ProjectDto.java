@@ -2,6 +2,7 @@ package com.application.evdekalkodla.dto;
 
 
 
+import com.application.evdekalkodla.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,10 @@ public class ProjectDto {
     private String projectName;
     @NotNull
     private String projectCode;
-    // private Long managerId;
+    @NotNull
+    private Long managerId;
+
+
    /*
     private UserDto  manager;*/
 }

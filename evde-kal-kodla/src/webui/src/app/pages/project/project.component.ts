@@ -5,6 +5,7 @@ import {Project} from "../../common/project.model";
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ConfirmationComponent} from "../../shared/confirmation/confirmation.component";
+import {UserService} from "../../services/shared/user.service";
 
 @Component({
   selector: 'app-project',
@@ -16,16 +17,22 @@ export class ProjectComponent implements OnInit {
 
   @ViewChild('tplProjectDeleteCell', {static: true}) tplProjectDeleteCell: TemplateRef<any>;
   modalRef: BsModalRef;
+
+  // form bilgilerini tutan property
   projectForm: FormGroup;
 
+  // pagination bilgilerini tutan propertyler
   rows = [];
   columns = [];
   loadingIndicator = true;
   reorderable = true;
 
+  // user icin
+  managerOptions = [];
+
 
   constructor(private projectService: ProjectService, public modalService: BsModalService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,private userService : UserService) {
 
 
     this.fetch(data => {
@@ -40,6 +47,7 @@ export class ProjectComponent implements OnInit {
 
 
     this.columns = [{prop: 'id'}, {name: 'Project Name'}, {name: 'Project Code', sortable: false},
+      {prop: 'managerId.nameSurname', name: 'Manager', sortable: false},
       {prop: 'id', name: 'Actions', cellTemplate: this.tplProjectDeleteCell, flexGrow: 1, sortable: false}
     ];
 
@@ -48,12 +56,18 @@ export class ProjectComponent implements OnInit {
     this.projectForm = this.formBuilder.group({
       'projectCode': [null, [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
       'projectName': [null, [Validators.required, Validators.minLength(4)]],
+      'managerId': [null, [Validators.required]]
+    });
+
+    this.userService.getAll().subscribe(response => {
+      this.managerOptions = response;
+      console.log(response);
     });
 
   }
 
   get f() {
-    return this.projectForm.controls
+    return this.projectForm.controls;
   }
 
 
@@ -85,10 +99,12 @@ export class ProjectComponent implements OnInit {
     this.projectService.createProject(this.projectForm.value).subscribe(
       response => {
         console.log();
+        {offset: 0};
+        this.closeAndResetModal();
 
       }
     )
-    this.closeAndResetModal();
+   // this.closeAndResetModal();
   }
 
   /* Hem formun datasını resetleme hemde datamızı gizleme islemi*/

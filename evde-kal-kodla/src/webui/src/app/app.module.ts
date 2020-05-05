@@ -13,6 +13,10 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {CommonModule} from "@angular/common";
+import {UserService} from "./services/shared/user.service";
+import {ProjectService} from "./services/shared/project.service";
+import {SubjectService} from "./services/shared/subject.service";
+import {SubjectHistoryService} from "./services/shared/subjectHistory.service";
 
 
 
@@ -46,7 +50,7 @@ export const createTranslateLoader = (http: HttpClient) => {
       }
     })
   ],
-  providers: [ApiService],
+  providers: [ApiService,UserService,ProjectService,SubjectService,SubjectHistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

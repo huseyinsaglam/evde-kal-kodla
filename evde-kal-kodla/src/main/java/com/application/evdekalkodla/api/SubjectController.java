@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/subject")
+@CrossOrigin
 public class SubjectController {
 
     private final SubjectServiceImpl subjectServiceImpl;
