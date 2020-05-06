@@ -4,13 +4,16 @@ import { SubjectComponent } from './subject.component';
 import {SubjectRoutingModule} from "./subject-routing.module";
 import {SubjectService} from "../../services/shared/subject.service";
 import {SharedModule} from "../../shared/shared.module";
+import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 
 
 
 @NgModule({
-  declarations: [SubjectComponent],
+  declarations: [SubjectComponent, SubjectDetailComponent],
   imports: [
     CommonModule,
+    NgxDatatableModule,
     SubjectRoutingModule,
     SharedModule
   ],

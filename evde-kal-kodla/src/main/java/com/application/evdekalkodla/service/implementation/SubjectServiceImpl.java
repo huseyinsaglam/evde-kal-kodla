@@ -1,9 +1,12 @@
 package com.application.evdekalkodla.service.implementation;
 
+import com.application.evdekalkodla.dto.SubjectDetailDto;
 import com.application.evdekalkodla.dto.SubjectDto;
+import com.application.evdekalkodla.dto.SubjectHistoryDto;
 import com.application.evdekalkodla.entity.Subject;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.SubjectRepository;
+import com.application.evdekalkodla.service.SubjectHistoryService;
 import com.application.evdekalkodla.service.SubjectService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -21,12 +24,16 @@ public class SubjectServiceImpl implements SubjectService {
 
     private final SubjectRepository subjectRepository;
     private final ModelMapper modelMapper;
+    private final SubjectHistoryService subjectHistoryService;
 
 
-    public SubjectServiceImpl (SubjectRepository subjectRepository, ModelMapper modelMapper)
+    public SubjectServiceImpl (SubjectRepository subjectRepository,
+                               ModelMapper modelMapper,
+                               SubjectHistoryService subjectHistoryService)
     {
         this.subjectRepository = subjectRepository;
         this.modelMapper = modelMapper;
+        this.subjectHistoryService=subjectHistoryService;
     }
 
 
@@ -50,6 +57,15 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public SubjectDto getById(Long id) {
         return null;
+    }
+
+
+    public SubjectDetailDto getByIdWithDetails(Long id) {
+        Subject subject = subjectRepository.getOne(id);
+        SubjectDetailDto detailDto = modelMapper.map(subject, SubjectDetailDto.class);
+        List<SubjectHistoryDto> issueHistoryDtos = subjectHistoryService.getBySubjectId(subject.getId());
+        detailDto.setSubjectHistories(issueHistoryDtos);
+        return detailDto;
     }
 
     @Override

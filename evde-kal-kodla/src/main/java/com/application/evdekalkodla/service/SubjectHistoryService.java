@@ -1,16 +1,22 @@
 package com.application.evdekalkodla.service;
 
+import com.application.evdekalkodla.dto.SubjectHistoryDto;
 import com.application.evdekalkodla.entity.SubjectHistory;
+import com.application.evdekalkodla.pagination.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface SubjectHistoryService {
 
-    public SubjectHistory save(SubjectHistory subjectHistory); // subjectHistory verelim kaydetsin sonra geri bize subjectHistory kaydini geri donsun..
+    public SubjectHistoryDto save(SubjectHistoryDto subjectHistory); // subjectHistory verelim kaydetsin sonra geri bize subjectHistory kaydini geri donsun..
 
-    public SubjectHistory getById(Long id);
+    public SubjectHistoryDto getById(Long id);
 
-    public Page<SubjectHistory> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun subjectHistory leri..
+    List<SubjectHistoryDto> getBySubjectId(Long id);
 
-    Boolean delete(SubjectHistory subjectHistory);
+    public TPage<SubjectHistoryDto> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun subjectHistory leri..
+
+    Boolean delete(SubjectHistoryDto subjectHistory);
 }

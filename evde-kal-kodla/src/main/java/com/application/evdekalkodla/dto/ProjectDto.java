@@ -22,8 +22,5 @@ public class ProjectDto {
     private String projectCode;
     @NotNull
     private Long managerId;
-
-
-   /*
-    private UserDto  manager;*/
+    private UserDto  manager;
 }

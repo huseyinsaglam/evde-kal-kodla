@@ -6,11 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubjectDto {
+public class SubjectDetailDto {
 
 
 
@@ -21,6 +23,5 @@ public class SubjectDto {
     private SubjectStatus subjectStatus;
     private UserDto assignee;
     private ProjectDto project;
-
-
+    private List<SubjectHistoryDto> subjectHistories;
 }
