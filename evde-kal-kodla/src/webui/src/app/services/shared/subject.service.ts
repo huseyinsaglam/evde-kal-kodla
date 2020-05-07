@@ -30,6 +30,20 @@ export class SubjectService {
   }
 
 
+
+  getByIdWithDetails(id: number) {
+    return this.apiService.get("/subject/detail/"+ id).pipe(map(
+      res => {
+        if (res) {
+          return res;
+        } else {
+          console.log(res);
+          return {};
+        }
+      }
+    ));
+  }
+
   getByid(id):Observable<any>
   {
     return this.apiService.get("/subject",id).pipe(map(
@@ -86,4 +100,16 @@ export class SubjectService {
   }
 
 
+  getAllSubjectStatuses() {
+    return this.apiService.get("/subject/statuses").pipe(map(
+      res => {
+        if (res) {
+          return res;
+        } else {
+          console.log(res);
+          return {};
+        }
+      }
+    ));
+  }
 }

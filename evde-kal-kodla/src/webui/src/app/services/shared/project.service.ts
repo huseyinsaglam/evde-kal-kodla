@@ -43,6 +43,25 @@ export class ProjectService {
       ));
   }
 
+
+  getAlls(): Observable<any> {
+    return this.http.get(environment.API_BASE_PATH+ '/project')
+      .pipe(map(
+        response =>
+        {
+          if (response != null)
+          {
+            return response
+          }
+          else
+          {
+            console.log(response);
+            return {};
+          }
+        }
+      ));
+  }
+
   // HttpClient API get() method => Fetch project
   getByid(id): Observable<any> {
     return this.http.get(environment.API_BASE_PATH  + '/project/' + id)

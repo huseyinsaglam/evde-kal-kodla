@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -44,9 +45,11 @@ public class ProjectServiceImpl implements ProjectService {
         User user = userRepository.getOne(project.getManagerId());
         projectData.setManagerId(user);
 
+
         projectData = projectRepository.save(projectData);
         project.setId(projectData.getId());
         return project;
+
 
     }
 
@@ -71,6 +74,13 @@ public class ProjectServiceImpl implements ProjectService {
         TPage<ProjectDto> response = new TPage<ProjectDto>();
         response.setPage(data, Arrays.asList(modelMapper.map(data.getContent(), ProjectDto[].class)));
         return response;
+    }
+
+    public List<ProjectDto> getAll()
+    {
+        List<Project> data = projectRepository.findAll();
+
+        return Arrays.asList(modelMapper.map(data, ProjectDto[].class));
     }
 
     @Override

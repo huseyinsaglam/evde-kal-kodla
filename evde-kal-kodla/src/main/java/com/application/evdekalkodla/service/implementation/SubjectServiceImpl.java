@@ -86,4 +86,10 @@ public class SubjectServiceImpl implements SubjectService {
     public SubjectDto update(Long id, SubjectDto subject) {
         return null;
     }
+
+    public List<SubjectDto> getAll() {
+
+        List<Subject> data = subjectRepository.findAll();
+        return Arrays.asList(modelMapper.map(data, SubjectDto[].class));
+    }
 }

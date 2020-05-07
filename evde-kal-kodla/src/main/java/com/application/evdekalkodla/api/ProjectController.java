@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/project")
@@ -36,6 +37,14 @@ public class ProjectController {
         TPage<ProjectDto> data = projectServiceImpl.getAllPageable(pageable);
         return ResponseEntity.ok(data);
     }
+
+    @GetMapping()
+    public ResponseEntity<List<ProjectDto>> getAll()
+    {
+        List<ProjectDto> data = projectServiceImpl.getAll();
+        return ResponseEntity.ok(data);
+    }
+
 
     @PostMapping
     public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto project)
