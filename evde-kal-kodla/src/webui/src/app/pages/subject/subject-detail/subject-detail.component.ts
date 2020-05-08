@@ -3,7 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {SubjectService} from "../../../services/shared/subject.service";
 import {ProjectService} from "../../../services/shared/project.service";
 import {UserService} from "../../../services/shared/user.service";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-subject-detail',
@@ -27,6 +27,8 @@ export class SubjectDetailComponent implements OnInit {
   subjectStatusOptions = [];
   assigneeOptions = [];
 
+  // Form Group nesnesi
+  subjectDetailForm: FormGroup;
 
 
   constructor(private route: ActivatedRoute,
@@ -84,8 +86,31 @@ export class SubjectDetailComponent implements OnInit {
 
   private loadSubjectDetails() {
     this.subjectService.getByIdWithDetails(this.id).subscribe(response => {
-     // this.subjectDetailForm = this.createIssueDetailFormGroup(response);
+      this.subjectDetailForm = this.createIssueDetailFormGroup(response);
       this.datatable_rows = response['subjectHistories']; // response dan gelen subjectHistories alanını verecegiz..
     });
   }
+
+  createIssueDetailFormGroup(response) {
+    return this.formBuilder.group({
+      id: response['id'],
+      description: response['description'],
+      details: response['details'],
+      date: response['date'],
+      subjectStatus: response['subjectStatus'],
+      assignee_id: response['assignee']? response['assignee']['id'] : '',
+      project_id: response['project'] ? response['project']['id'] : '',
+      project_manager: response['project'] && response['project']['manager'] ? response['project']['manager']['nameSurname']: '',
+    });
+  }
+
+
+  saveSubject()
+  {
+    this.subjectService.updateIssue(this.subjectDetailForm.value).subscribe(response=>{
+      this.subjectDetailForm = this.createIssueDetailFormGroup(response);
+      this.datatable_rows = response['issueHistories'];
+    });
+  }
+
 }

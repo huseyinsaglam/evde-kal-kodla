@@ -3,6 +3,7 @@ package com.application.evdekalkodla.service.implementation;
 import com.application.evdekalkodla.dto.SubjectDetailDto;
 import com.application.evdekalkodla.dto.SubjectDto;
 import com.application.evdekalkodla.dto.SubjectHistoryDto;
+import com.application.evdekalkodla.dto.SubjectUpdateDto;
 import com.application.evdekalkodla.entity.Subject;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.SubjectRepository;
@@ -12,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -83,7 +85,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public SubjectDto update(Long id, SubjectDto subject) {
+    public SubjectDetailDto update(Long id, SubjectUpdateDto subject) {
         return null;
     }
 

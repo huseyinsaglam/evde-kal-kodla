@@ -4,6 +4,7 @@ package com.application.evdekalkodla.api;
 
 import com.application.evdekalkodla.dto.SubjectDetailDto;
 import com.application.evdekalkodla.dto.SubjectDto;
+import com.application.evdekalkodla.dto.SubjectUpdateDto;
 import com.application.evdekalkodla.entity.SubjectStatus;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.service.implementation.SubjectServiceImpl;
@@ -66,7 +67,7 @@ public class SubjectController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<SubjectDto> updateProject(@PathVariable(value = "id") Long id, @Valid @RequestBody SubjectDto subject) {
+    public ResponseEntity<SubjectDetailDto> updateProject(@PathVariable(value = "id") Long id, @Valid @RequestBody SubjectUpdateDto subject) {
         return ResponseEntity.ok(subjectServiceImpl.update(id, subject));
     }
 

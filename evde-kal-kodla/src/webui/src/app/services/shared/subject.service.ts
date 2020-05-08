@@ -112,4 +112,18 @@ export class SubjectService {
       }
     ));
   }
+
+
+  updateIssue(subject): Observable<any> {
+    return this.apiService.put( '/subject/' + subject.id, subject).pipe(map(
+      res => {
+        if (res) {
+          return res;
+        } else {
+          console.log(res);
+          return {};
+        }
+      }
+    ));
+  }
 }

@@ -1,6 +1,8 @@
 package com.application.evdekalkodla.service;
 
+import com.application.evdekalkodla.dto.SubjectDetailDto;
 import com.application.evdekalkodla.dto.SubjectDto;
+import com.application.evdekalkodla.dto.SubjectUpdateDto;
 import com.application.evdekalkodla.pagination.TPage;
 import org.springframework.data.domain.Pageable;
 
@@ -17,5 +19,5 @@ public interface SubjectService {
 
     Boolean delete(Long subject);
 
-    SubjectDto update(Long id, SubjectDto subject);
+    SubjectDetailDto update(Long id, SubjectUpdateDto subject);
 }

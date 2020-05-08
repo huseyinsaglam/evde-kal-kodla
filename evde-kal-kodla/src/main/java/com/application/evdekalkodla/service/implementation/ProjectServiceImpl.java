@@ -43,11 +43,11 @@ public class ProjectServiceImpl implements ProjectService {
         }
         Project projectData = modelMapper.map(project, Project.class);
         User user = userRepository.getOne(project.getManagerId());
-        projectData.setManagerId(user);
+        projectData.setManagerIds(user);
 
 
         projectData = projectRepository.save(projectData);
-        project.setId(projectData.getId());
+       project.setId(projectData.getId());
         return project;
 
 
