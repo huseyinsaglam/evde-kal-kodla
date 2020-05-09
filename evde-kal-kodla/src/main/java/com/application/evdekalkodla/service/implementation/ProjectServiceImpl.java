@@ -47,7 +47,7 @@ public class ProjectServiceImpl implements ProjectService {
         projectData.setManagerIds(user);
 
         projectData = projectRepository.save(projectData);
-        project.setId(projectData.getId());
+        //project.setId(projectData.getId());
         return project;
 
 
@@ -79,6 +79,8 @@ public class ProjectServiceImpl implements ProjectService {
     public List<ProjectDto> getAll()
     {
         List<Project> data = projectRepository.findAll();
+        List<ProjectDto> projectDto = Arrays.asList(modelMapper.map(data, ProjectDto[].class));
+        System.out.println(projectDto);
         return Arrays.asList(modelMapper.map(data, ProjectDto[].class));
 
     }

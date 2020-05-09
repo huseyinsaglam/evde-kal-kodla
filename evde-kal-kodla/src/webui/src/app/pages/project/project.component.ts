@@ -47,7 +47,7 @@ export class ProjectComponent implements OnInit {
 
 
     this.columns = [{prop: 'id'}, {name: 'Project Name'}, {name: 'Project Code', sortable: false},
-      {prop: 'manager.nameSurname', name: 'Manager', sortable: false},
+      {prop: 'managerIds.nameSurname', name: 'Manager', sortable: false},
       {prop: 'id', name: 'Actions', cellTemplate: this.tplProjectDeleteCell, flexGrow: 1, sortable: false}
     ];
 
