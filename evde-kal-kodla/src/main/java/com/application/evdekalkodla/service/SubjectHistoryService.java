@@ -1,6 +1,7 @@
 package com.application.evdekalkodla.service;
 
 import com.application.evdekalkodla.dto.SubjectHistoryDto;
+import com.application.evdekalkodla.entity.Subject;
 import com.application.evdekalkodla.entity.SubjectHistory;
 import com.application.evdekalkodla.pagination.TPage;
 import org.springframework.data.domain.Page;
@@ -19,4 +20,6 @@ public interface SubjectHistoryService {
     public TPage<SubjectHistoryDto> getAllPageable(Pageable pageable); // pageable (sayfalama) seklinde getir butun subjectHistory leri..
 
     Boolean delete(SubjectHistoryDto subjectHistory);
+
+    void addHistory(Long id, Subject subjectDb);
 }

@@ -109,8 +109,13 @@ export class SubjectDetailComponent implements OnInit {
   {
     this.subjectService.updateIssue(this.subjectDetailForm.value).subscribe(response=>{
       this.subjectDetailForm = this.createIssueDetailFormGroup(response);
-      this.datatable_rows = response['issueHistories'];
+      this.datatable_rows = response['subjectHistories'];
     });
   }
 
+  // date donusumu
+  fromJsonDate(jDate): string {
+    const bDate: Date = new Date(jDate);
+    return bDate.toISOString().substring(0, 10);
+  }
 }

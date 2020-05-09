@@ -5,14 +5,18 @@ import com.application.evdekalkodla.dto.SubjectDto;
 import com.application.evdekalkodla.dto.SubjectHistoryDto;
 import com.application.evdekalkodla.dto.SubjectUpdateDto;
 import com.application.evdekalkodla.entity.Subject;
+import com.application.evdekalkodla.entity.User;
 import com.application.evdekalkodla.pagination.TPage;
+import com.application.evdekalkodla.repository.ProjectRepository;
 import com.application.evdekalkodla.repository.SubjectRepository;
+import com.application.evdekalkodla.repository.UserRepository;
 import com.application.evdekalkodla.service.SubjectHistoryService;
 import com.application.evdekalkodla.service.SubjectService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.Arrays;
@@ -27,15 +31,21 @@ public class SubjectServiceImpl implements SubjectService {
     private final SubjectRepository subjectRepository;
     private final ModelMapper modelMapper;
     private final SubjectHistoryService subjectHistoryService;
+    private final UserRepository userRepository;
+    private final ProjectRepository projectRepository;
 
 
     public SubjectServiceImpl (SubjectRepository subjectRepository,
                                ModelMapper modelMapper,
-                               SubjectHistoryService subjectHistoryService)
+                               SubjectHistoryService subjectHistoryService,
+                               UserRepository userRepository,
+                               ProjectRepository projectRepository)
     {
         this.subjectRepository = subjectRepository;
         this.modelMapper = modelMapper;
         this.subjectHistoryService=subjectHistoryService;
+        this.userRepository = userRepository;
+        this.projectRepository = projectRepository;
     }
 
 
@@ -84,9 +94,20 @@ public class SubjectServiceImpl implements SubjectService {
         return true;
     }
 
-    @Override
+    @Transactional
     public SubjectDetailDto update(Long id, SubjectUpdateDto subject) {
-        return null;
+        Subject subjectDb = subjectRepository.getOne(id);
+        User user = userRepository.getOne(subject.getAssignee_id());
+       // subjectHistoryService.addHistory(id, subjectDb);
+
+        subjectDb.setAssignee(user);
+        subjectDb.setDate(subject.getDate());
+        subjectDb.setDescription(subject.getDescription());
+        subjectDb.setDetails(subject.getDetails());
+        subjectDb.setSubjectStatus(subject.getSubjectStatus());
+        subjectDb.setProject(projectRepository.getOne(subject.getProject_id()));
+        subjectRepository.save(subjectDb);
+        return getByIdWithDetails(id);
     }
 
     public List<SubjectDto> getAll() {

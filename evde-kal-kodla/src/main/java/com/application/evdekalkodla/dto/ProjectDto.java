@@ -23,6 +23,6 @@ public class ProjectDto {
     @NotNull
     private Long managerId;
 
-
     private UserDto  manager;
+
 }

@@ -1,6 +1,7 @@
 package com.application.evdekalkodla.service.implementation;
 
 import com.application.evdekalkodla.dto.SubjectHistoryDto;
+import com.application.evdekalkodla.entity.Subject;
 import com.application.evdekalkodla.entity.SubjectHistory;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.SubjectHistoryRepository;
@@ -24,6 +25,7 @@ public class SubjectHistoryImpl implements SubjectHistoryService {
     public SubjectHistoryImpl(SubjectHistoryRepository subjectHistoryRepository,ModelMapper modelMapper) {
                    this.subjectHistoryRepository =  subjectHistoryRepository;
                    this.modelMapper = modelMapper;
+
     }
 
     @Override
@@ -66,5 +68,18 @@ public class SubjectHistoryImpl implements SubjectHistoryService {
 
         subjectHistoryRepository.deleteById(subjectHistory.getId());
         return Boolean.TRUE;
+    }
+
+    @Override
+    public void addHistory(Long id, Subject subjectDb) {
+
+        SubjectHistory history=new SubjectHistory();
+        history.setSubject(subjectDb);
+        history.setAssignee(subjectDb.getAssignee());
+        history.setDate(subjectDb.getDate());
+        history.setDescription(subjectDb.getDescription());
+        history.setDetails(subjectDb.getDetails());
+        history.setSubjectStatus(subjectDb.getSubjectStatus());
+        subjectHistoryRepository.save(history);
     }
 }

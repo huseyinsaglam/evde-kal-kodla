@@ -2,6 +2,7 @@ package com.application.evdekalkodla.service.implementation;
 
 import com.application.evdekalkodla.dto.ProjectDto;
 import com.application.evdekalkodla.entity.Project;
+import com.application.evdekalkodla.entity.Subject;
 import com.application.evdekalkodla.entity.User;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.ProjectRepository;
@@ -45,9 +46,8 @@ public class ProjectServiceImpl implements ProjectService {
         User user = userRepository.getOne(project.getManagerId());
         projectData.setManagerIds(user);
 
-
         projectData = projectRepository.save(projectData);
-       project.setId(projectData.getId());
+        project.setId(projectData.getId());
         return project;
 
 
@@ -79,8 +79,8 @@ public class ProjectServiceImpl implements ProjectService {
     public List<ProjectDto> getAll()
     {
         List<Project> data = projectRepository.findAll();
-
         return Arrays.asList(modelMapper.map(data, ProjectDto[].class));
+
     }
 
     @Override
