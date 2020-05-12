@@ -52,7 +52,6 @@ export class SubjectDetailComponent implements OnInit {
       {prop: 'date', name: 'Subject Date',cellTemplate: this.tplDateCell},
       {prop: 'subjectStatus', name: 'Subject Status'},
       {prop: 'assignee.nameSurname', name: 'Assignee'},
-      {prop: 'subject.project.projectName', name: 'Project Name'},
     ];
 
     // 1- Project DD dolacak
@@ -78,7 +77,7 @@ export class SubjectDetailComponent implements OnInit {
 
 
   private loadSubjectStatuses() { /* subject statusları getiriyoruz */
-    this.subjectService.getAllSubjectStatuses().subscribe(response => {
+    this.subjectService.getAllSubjectStatusess().subscribe(response => {
       this.subjectStatusOptions = response;
     })
   }
@@ -86,29 +85,30 @@ export class SubjectDetailComponent implements OnInit {
 
   private loadSubjectDetails() {
     this.subjectService.getByIdWithDetails(this.id).subscribe(response => {
-      this.subjectDetailForm = this.createIssueDetailFormGroup(response);
+      this.subjectDetailForm = this.createSubjectDetailFormGroup(response);
       this.datatable_rows = response['subjectHistories']; // response dan gelen subjectHistories alanını verecegiz..
     });
   }
 
-  createIssueDetailFormGroup(response) {
+  createSubjectDetailFormGroup(response) {
     return this.formBuilder.group({
       id: response['id'],
       description: response['description'],
       details: response['details'],
-      date: response['date'],
+      date: this.fromJsonDate(response['date']),
       subjectStatus: response['subjectStatus'],
       assignee_id: response['assignee']? response['assignee']['id'] : '',
       project_id: response['project'] ? response['project']['id'] : '',
-      project_manager: response['project'] && response['project']['manager'] ? response['project']['manager']['nameSurname']: '',
+      project_manager: response['project'] && response['project']['managerIds'] ? response['project']['managerIds']['nameSurname']: '',
     });
   }
 
 
   saveSubject()
   {
-    this.subjectService.updateIssue(this.subjectDetailForm.value).subscribe(response=>{
-      this.subjectDetailForm = this.createIssueDetailFormGroup(response);
+    this.subjectService.updateSubject(this.subjectDetailForm.value).subscribe(response=>{
+      this.subjectDetailForm = this.createSubjectDetailFormGroup(response);
+      console.log(response);
       this.datatable_rows = response['subjectHistories'];
     });
   }

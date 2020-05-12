@@ -46,5 +46,6 @@ public class Subject extends BaseEntity {
 
     @JoinColumn(name = "project_id")
     @ManyToOne(optional = true , fetch = FetchType.LAZY) // birden fazla subject konu bir projeye'e atanabilir..
-    private Project project;
+    private Project projectIds;
+
 }

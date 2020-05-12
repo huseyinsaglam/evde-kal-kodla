@@ -20,7 +20,11 @@ public class SubjectDto {
     private Date date;
     private SubjectStatus subjectStatus;
     private UserDto assignee;
-    private ProjectDto project;
+
+
+    private Long projectId;
+
+    private ProjectDto projectIds;
 
 
 }

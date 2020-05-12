@@ -10,8 +10,8 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label class="badge">Issue Status</label>
-          <select formControlName="issueStatus" class="form-control" >
+          <label class="badge">Subject Status</label>
+          <select formControlName="subjectStatus" class="form-control" >
             <option *ngFor="let val of subjectStatusOptions" [value]="val">{{val}}</option>
           </select>
         </div>
@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
-          <label class="badge">Issue Date</label>
+          <label class="badge">Subject Date</label>
           <input type="date"  formControlName="date" class="form-control" />
         </div>
       </div>
@@ -35,7 +35,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label class="badge">Project</label>
+          <label class="badge">Project Name</label>
           <select formControlName="project_id" class="form-control" >
             <option *ngFor="let val of projectOptions" [value]="val.id"> {{val.projectName}}</option>
           </select>
@@ -78,6 +78,8 @@
 
   </form>
   <div>
+
+
     <ngx-datatable
       class="bootstrap"
       [rows]="datatable_rows"
@@ -87,6 +89,7 @@
       [footerHeight]="50"
       [rowHeight]="50">
     </ngx-datatable>
+
 
     <ng-template #tplDateCell let-row="row" let-value="value">
       {{value | date: 'dd/MM/yyyy'}}

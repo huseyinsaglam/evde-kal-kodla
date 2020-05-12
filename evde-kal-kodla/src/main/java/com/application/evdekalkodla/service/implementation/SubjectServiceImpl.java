@@ -5,6 +5,7 @@ import com.application.evdekalkodla.dto.SubjectDto;
 import com.application.evdekalkodla.dto.SubjectHistoryDto;
 import com.application.evdekalkodla.dto.SubjectUpdateDto;
 import com.application.evdekalkodla.entity.Subject;
+import com.application.evdekalkodla.entity.SubjectStatus;
 import com.application.evdekalkodla.entity.User;
 import com.application.evdekalkodla.pagination.TPage;
 import com.application.evdekalkodla.repository.ProjectRepository;
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,14 +32,14 @@ public class SubjectServiceImpl implements SubjectService {
 
     private final SubjectRepository subjectRepository;
     private final ModelMapper modelMapper;
-    private final SubjectHistoryService subjectHistoryService;
+    private final SubjectHistoryImpl subjectHistoryService;
     private final UserRepository userRepository;
     private final ProjectRepository projectRepository;
 
 
     public SubjectServiceImpl (SubjectRepository subjectRepository,
                                ModelMapper modelMapper,
-                               SubjectHistoryService subjectHistoryService,
+                               SubjectHistoryImpl subjectHistoryService,
                                UserRepository userRepository,
                                ProjectRepository projectRepository)
     {
@@ -52,7 +54,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public SubjectDto save(SubjectDto subject) {
 
-        if(subject.getDate()==null)
+/*        if(subject.getDate()==null)
         {
             throw new IllegalArgumentException("Issue Date cannot be null");
         }
@@ -62,7 +64,17 @@ public class SubjectServiceImpl implements SubjectService {
         subjectdb = subjectRepository.save(subjectdb);
 
         // veri tabanina kaydedilen nesneyi donerken bu seferde SubjectDto donder oyle return yap..
-        return modelMapper.map(subjectdb,SubjectDto.class);
+        return modelMapper.map(subjectdb,SubjectDto.class);*/
+
+        subject.setDate(new Date());
+        subject.setSubjectStatus(SubjectStatus.OPEN);
+
+
+        Subject subjectDb = modelMapper.map(subject, Subject.class); // issue ile IssueDto classını Issue class ile eşleştiriyor.. issuDb ile Issue class'ına atadı
+        subjectDb.setProjectIds(projectRepository.getOne(subject.getProjectId()));
+        subjectDb = subjectRepository.save(subjectDb); // issue veri tabanına kaydetti..
+        subject.setId(subjectDb.getId());
+        return subject;
 
     }
 
@@ -75,8 +87,8 @@ public class SubjectServiceImpl implements SubjectService {
     public SubjectDetailDto getByIdWithDetails(Long id) {
         Subject subject = subjectRepository.getOne(id);
         SubjectDetailDto detailDto = modelMapper.map(subject, SubjectDetailDto.class);
-        List<SubjectHistoryDto> issueHistoryDtos = subjectHistoryService.getBySubjectId(subject.getId());
-        detailDto.setSubjectHistories(issueHistoryDtos);
+        List<SubjectHistoryDto> subjectHistoryDtos = subjectHistoryService.getBySubjectId(subject.getId());
+        detailDto.setSubjectHistories(subjectHistoryDtos);
         return detailDto;
     }
 
@@ -97,15 +109,16 @@ public class SubjectServiceImpl implements SubjectService {
     @Transactional
     public SubjectDetailDto update(Long id, SubjectUpdateDto subject) {
         Subject subjectDb = subjectRepository.getOne(id);
+        subjectHistoryService.addHistory(id, subjectDb);
         User user = userRepository.getOne(subject.getAssignee_id());
-       // subjectHistoryService.addHistory(id, subjectDb);
+
 
         subjectDb.setAssignee(user);
         subjectDb.setDate(subject.getDate());
         subjectDb.setDescription(subject.getDescription());
         subjectDb.setDetails(subject.getDetails());
         subjectDb.setSubjectStatus(subject.getSubjectStatus());
-        subjectDb.setProject(projectRepository.getOne(subject.getProject_id()));
+        subjectDb.setProjectIds(projectRepository.getOne(subject.getProject_id()));
         subjectRepository.save(subjectDb);
         return getByIdWithDetails(id);
     }

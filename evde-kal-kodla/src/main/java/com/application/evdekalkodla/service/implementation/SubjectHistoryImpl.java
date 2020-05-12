@@ -46,8 +46,12 @@ public class SubjectHistoryImpl implements SubjectHistoryService {
 
     @Override
     public List<SubjectHistoryDto> getBySubjectId(Long id) {
+        List<SubjectHistory> subjectHistory = subjectHistoryRepository.getBySubjectIdOrderById(id);
+        SubjectHistoryDto[] subjectHistoryDto = modelMapper.map(subjectHistoryRepository.getBySubjectIdOrderById(id), SubjectHistoryDto[].class);
         return Arrays.asList(modelMapper.map(subjectHistoryRepository.getBySubjectIdOrderById(id), SubjectHistoryDto[].class));
     }
+
+
 
     @Override
     public TPage<SubjectHistoryDto> getAllPageable(Pageable pageable) {

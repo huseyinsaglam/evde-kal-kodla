@@ -36,6 +36,15 @@ public class SubjectController {
     }
 
 
+    @GetMapping()
+    public ResponseEntity<List<SubjectDto>> getAlls()
+    {
+        List<SubjectDto> data = subjectServiceImpl.getAll();
+        return ResponseEntity.ok(data);
+    }
+
+
+
     @GetMapping("/statuses")
     public ResponseEntity<List<SubjectStatus>> getAll() {
         return ResponseEntity.ok(Arrays.asList(SubjectStatus.values()));

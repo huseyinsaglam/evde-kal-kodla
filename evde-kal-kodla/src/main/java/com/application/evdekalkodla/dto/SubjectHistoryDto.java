@@ -16,4 +16,5 @@ public class SubjectHistoryDto {
     private SubjectStatus subjectStatus;
     private String details;
     private UserDto assignee;
+
 }
