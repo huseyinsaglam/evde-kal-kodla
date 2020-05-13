@@ -23,6 +23,7 @@ public class ProjectController {
         this.projectServiceImpl = projectServiceImpl;
     }
 
+
     // Url deki gelen id'i PathVariable ile aldık ...
     @GetMapping("/{id}") // REST Web Servis metodu haline getirmek için
     public ResponseEntity<ProjectDto> getByid(@PathVariable("id") Long id)
