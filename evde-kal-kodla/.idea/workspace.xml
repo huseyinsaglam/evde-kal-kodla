@@ -2,15 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35106197-fa8a-486f-a158-4e37c256dce7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_6_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/model/JwtRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/model/JwtResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evde-kal-kodla.iml" beforeDir="false" afterPath="$PROJECT_DIR$/evde-kal-kodla.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/config/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/SpringSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/SpringSecurityConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/evdekalkodla/api/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/evdekalkodla/api/ProjectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/evdekalkodla/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/evdekalkodla/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/evdekalkodla/security/SpringSecurityConfig.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,24 +39,12 @@
     <favorites_list name="evde-kal-kodla" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/SpringSecurityConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="85">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -60,6 +57,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="HTML File" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -88,20 +86,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/webui/src/app/common/project.model.ts" />
-        <option value="$PROJECT_DIR$/src/webui/package.json" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/pages/dashboard/dashboard.module.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/pages/dashboard/dashboard.component.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/services/api.service.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/pages/project/project-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/shared/confirmation/confirmation.component.html" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/shared/confirmation/confirmation.component.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/shared/shared.module.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/common/page.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/pages/project/project.module.ts" />
-        <option value="$PROJECT_DIR$/src/webui/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/webui/src/app/services/shared/subjectHistory.service.ts" />
-        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/UserDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/webui/src/app/services/shared/user.service.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/UserController.java" />
@@ -134,11 +119,24 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/WEB-INF/pages/index2.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/LogoutController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/service/implementation/UserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/SpringSecurityConfig.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/UserDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/config/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtAuthenticationEntryPoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtRequestFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/UserDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtUserDetailsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtTokenUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/model/JwtRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/model/JwtResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/JwtAuthenticationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/config/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/AccountController.java" />
       </list>
     </option>
   </component>
@@ -170,7 +168,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -182,7 +180,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -226,10 +223,27 @@
               <item name="evdekalkodla" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="evde-kal-kodla" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evde-kal-kodla" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="evdekalkodla" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evde-kal-kodla" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evde-kal-kodla" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,18 +423,21 @@
       <workItem from="1589052865040" duration="10320000" />
       <workItem from="1589222495283" duration="21322000" />
       <workItem from="1589306940198" duration="10162000" />
-      <workItem from="1589395381780" duration="14756000" />
+      <workItem from="1589395381780" duration="15978000" />
+      <workItem from="1589489739141" duration="764000" />
+      <workItem from="1590090573894" duration="1006000" />
+      <workItem from="1590101396675" duration="121000" />
+      <workItem from="1590174624477" duration="4132000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338614000" />
+    <option name="totallyTimeSpent" value="345859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.86166006" visible="true" weight="0.25642964" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.86166006" visible="true" weight="0.27155825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -431,13 +448,13 @@
       <window_info id="MyBatis Builder" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.7086743" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.23404256" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2700491" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" visible="true" weight="0.049099836" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" visible="true" weight="0.40261865" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.59738135" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -535,85 +552,6 @@
     <SUITE FILE_PATH="coverage/evde_kal_kodla$EvdeKalKodlaApplication.ic" NAME="EvdeKalKodlaApplication Coverage Results" MODIFIED="1588979248973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/repository/ProjectRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/Long.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/SubjectUpdateDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/service/SubjectService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7429">
-          <caret line="497" selection-start-line="497" selection-end-line="497" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webui/src/app/pages/project/project.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/service/implementation/ProjectServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="119" column="55" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webui/src/app/services/api.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="23" column="74" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webui/src/app/services/shared/project.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1090">
-          <caret line="46" column="2" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/webui/src/app/pages/project/project.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -820,23 +758,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/WEB-INF/pages/index2.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/WEB-INF/pages/index2.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/WEB-INF/jsp/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/WEB-INF/jsp/index.jsp" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.2.6.RELEASE/spring-boot-autoconfigure-2.2.6.RELEASE.jar!/org/springframework/boot/autoconfigure/web/servlet/WebMvcProperties.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -848,9 +772,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -861,53 +783,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/LogoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="49" lean-forward="true" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/UserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/service/implementation/UserDetailsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/LogoutController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/service/implementation/UserDetailsServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/ProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -920,18 +798,148 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="174">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/SpringSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="197">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/UserDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/dto/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/model/JwtRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/model/JwtResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1955#1956#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/api/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtAuthenticationEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtRequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-484">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtTokenUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/application/evdekalkodla/security/auth/JwtUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>
