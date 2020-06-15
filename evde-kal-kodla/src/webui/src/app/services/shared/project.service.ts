@@ -44,6 +44,7 @@ export class ProjectService {
   }
 
 
+  // http://localhost:8080/project
   getAlls(): Observable<any> {
     return this.http.get(environment.API_BASE_PATH+ '/project')
       .pipe(map(

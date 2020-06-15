@@ -49,7 +49,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/token/register", "/token","/authenticate", "/register").permitAll() // bunları engelleme diyoruz
+                .antMatchers("/token/register", "/token","/authenticate", "/register",
+                        "/v2/api-docs",
+                        "/v3/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/webjars/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui/index.html?url=/v3/**"
+                ).permitAll() // bunları engelleme diyoruz
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and() // sabit bir response dönmesi için bunu kullanıyoruz
